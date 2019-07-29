@@ -4,71 +4,71 @@
 var players = [
   { 
     name: "alisson",
-    img: "alisson.jpg"
+    img: "assets/images/alisson.jpg"
   },
   { 
     name: "firmino",
-    img: "firmino.jpg"
+    img: "assets/images/firmino.jpg"
   },
   { 
     name: "mane",
-    img: "mane.jpg"
+    img: "assets/images/mane.jpg"
   },
   { 
     name: "rush",
-    img: "rush.jpg"
+    img: "assets/images/rush.jpg"
   },
   { 
     name: "alonso",
-    img: "alonso.jpg"
+    img: "assets/images/alonso.jpg"
   },
   { 
     name: "gerrard",
-    img: "gerrard.jpg"
+    img: "assets/images/gerrard.jpg"
   },
   { 
     name: "milner",
-    img: "milner.jpeg"
+    img: "assets/images/milner.jpeg"
   },
   { 
     name: "salah",
-    img: "salah.jpg"
+    img: "assets/images/salah.jpg"
   },
   { 
     name: "barnes",
-    img: "barnes.jpg"
+    img: "assets/images/barnes.jpg"
   },
   { 
     name: "henderson",
-    img: "hendo.jpg"
+    img: "assets/images/hendo.jpg"
   },
   { 
     name: "origi",
-    img: "origi.jpg"
+    img: "assets/images/origi.jpg"
   },
   {
     name: "alexander-arnold",
-    img: "taa.jpg"
+    img: "assets/images/taa.jpg"
   },
   {
     name: "carragher",
-    img: "carragher.jpg"
+    img: "assets/images/carragher.jpg"
   },
   {
     name: "dalglish",
-    img: "kenny.png"
+    img: "assets/images/kenny.png"
   },
   {
     name: "robertson",
-    img: "robertson.jpg"
+    img: "assets/images/robertson.jpg"
   },
   {
     name: "van dijk",
-    img: "vvd.png"
+    img: "assets/images/vvd.png"
   },
-]
+];
 
-console.log("Loaded Player List")
+console.log("Loaded Player List");
 
 
 var guessesRemaining = 11 // allow 11 guesses per round.

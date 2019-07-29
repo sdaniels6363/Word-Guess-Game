@@ -74,7 +74,12 @@ function convertNameToSpaces(name){ // this function does as the name suggests.
   var length = name.length
   var spaces = ""
   for (i=0; i < length; i++){
-    var spaces = spaces+"_";
+    var letter = name[i];
+    if (letter === " "){ // if there is a space in the name, represent it as an actual space, rather than an underscore.
+      var spaces = spaces+" ";
+    } else { // if no space, replace letter with underscore.
+      var spaces = spaces+"_";
+    }
   }
   return spaces;
 }

@@ -70,23 +70,23 @@ var players = [
 
 console.log("Loaded Player List");
 
+window.onload=function(){ // runs after the document loads 
+  var guessesRemaining = 11 // allow 11 guesses per round.
 
-var guessesRemaining = 11 // allow 11 guesses per round.
+  // pick a player at random, once selected, remove from pool so they're not picked again.
+  var randomPlayerInt = Math.floor(Math.random() * players.length); // pick a player at random
+  console.log("Number selected: "+randomPlayerInt); // enable for troubleshooting, comment out after deployment.
 
-// pick a player at random, once selected, remove from pool so they're not picked again.
-var randomPlayerInt = Math.floor(Math.random() * players.length); // pick a player at random
-console.log("Number selected: "+randomPlayerInt); // enable for troubleshooting, comment out after deployment.
+  var selectedPlayer = players[randomPlayerInt]; // save selected player to variable for easier re-use
 
-var selectedPlayer = players[randomPlayerInt]; // save selected player to variable for easier re-use
+  var playerName = selectedPlayer.name; // store player name
+  console.log("Player Selected: "+playerName);  // enable for troubleshooting, comment out after deployment.
 
-var playerName = selectedPlayer.name; // store player name
-console.log("Player Selected: "+playerName);  // enable for troubleshooting, comment out after deployment.
-
-var playerImg = selectedPlayer.img; // store player photo path
-console.log("Photo Selected: "+playerImg);   // enable for troubleshooting, comment out after deployment.
+  var playerImg = selectedPlayer.img; // store player photo path
+  console.log("Photo Selected: "+playerImg);   // enable for troubleshooting, comment out after deployment.
 
 
-// add player image to page
-document.getElementById("player-image").src = playerImg;
-document.getElementById("player-image").alt = playerName;
-
+  // add player image to page
+  document.getElementById("player-image").src = playerImg;
+  document.getElementById("player-image").alt = playerName;
+}

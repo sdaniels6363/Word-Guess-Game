@@ -70,7 +70,18 @@ var players = [
 
 console.log("Loaded Player List");
 
-window.onload=function(){ // runs after the document loads 
+function convertNameToSpaces(name){ // this function does as the name suggests.
+  var length = name.length
+  var spaces = ""
+  for (i=0; i < length; i++){
+    var spaces = spaces+"_";
+  }
+  return spaces;
+}
+
+
+
+window.onload=function(){ // runs after the document loads, wrap all dynamic code in here.
   var guessesRemaining = 11 // allow 11 guesses per round.
 
   // pick a player at random, once selected, remove from pool so they're not picked again.
@@ -85,8 +96,12 @@ window.onload=function(){ // runs after the document loads
   var playerImg = selectedPlayer.img; // store player photo path
   console.log("Photo Selected: "+playerImg);   // enable for troubleshooting, comment out after deployment.
 
-
+  var playerNameAsSpaces = convertNameToSpaces(playerName);
+  console.log(playerNameAsSpaces);
   // add player image to page
   document.getElementById("player-image").src = playerImg;
-  document.getElementById("player-image").alt = playerName;
+  // add spaces to page for guessing player name.
+  document.getElementById("player-name-as-spaces").innerText = playerNameAsSpaces;
+
+
 }

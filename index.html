@@ -10,7 +10,8 @@
   <!-- styleheets -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css"> <!-- used for custom css or to overwrite bootstrap -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- used for custom css or to overwrite bootstrap -->
 
 </head>
 
@@ -23,27 +24,29 @@
   </header>
 
   <main>
-    <div class="row h-100">
-      <div class="col-md-6">
-        <img href="assets/images/milner.jpeg">
-      </div>
-      <div class="col-md-6">
-        <div class="row">
-          <p>Who is this player?</p>
+    <div class="container">
+      <div class="row h-100">
+        <div class="col-md-6">
+          <img src="assets/images/milner.jpeg">
         </div>
-        <div class="row">
-          <p>_ _ _ _ _ _</p>
-        </div>
-        <div class="row">
-          <p>Guessed Letters</p>
-          <p>p, q, t</p>
+        <div class="col-md-6">
+          <div class="row">
+            <p>Who is this player?</p>
+          </div>
+          <div class="row">
+            <p>_ _ _ _ _ _</p>
+          </div>
+          <div class="row">
+            <p>Guessed Letters:</p>
+            <span id="guessed-letters"></span>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
   <footer>
-    
+
   </footer>
 
 

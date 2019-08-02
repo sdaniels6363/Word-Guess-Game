@@ -63,12 +63,6 @@ function loadGame(array) {
   document.getElementById("player-image").src = selectedPlayer[1]; // pulls the player's photo.
   // add spaces to page for guessing player name.
   document.getElementById("player-name-as-spaces").textContent = selectedPlayer[2]; // pulls the hidden version of the name
-  // resets player message
-  document.getElementById("player-message").textContent = "";
-
-  document.getElementById("hidden-guess-letters").innerHTML  = 'Guessed Letters: <span id="guessed-letters"></span>';
-  document.getElementById("hidden-guess-rem").innerHTML  = 'Guesses Remaining: <span id="guesses">11</span>';
-  document.getElementById("scoreboard").innerHTML  = 'Score: <span id="score">0</span>';
   // game begins below this line
 
   var playerName = selectedPlayer[0]; // extract player information from returned array from before.
@@ -111,7 +105,7 @@ function game() {
 
             var currentLetter = playerNameArray[i];
 
-            if (currentLetter === playerGuess) { // if current letter is the same as the player's guess, replace the value in the playerNameSpacesArray
+            if ((currentLetter === playerGuess) && (parseInt(document.getElementById("guesses").textContent) !== 0)) { // if current letter is the same as the player's guess, and the player has guesses remaining, replace the value in the playerNameSpacesArray
               playerNameSpacesArray[i] = playerGuess;
             } else {
               continue; //if it doesn't match continue until the loop finishes.
@@ -134,20 +128,25 @@ function game() {
 
         if (badLetterArray.includes(playerGuess)) {
           // don't punish player for guessing same letter
-        } else if (playerNameArray.join("") === playerNameSpacesArray.join("") && (event.keyCode !== 13)){
+        } else if (playerNameArray.join("") === playerNameSpacesArray.join("") && (event.keyCode !== 13)) {
           // if the arrays match, and the user presses any key except enter, do nothing.
         } else {
           var currentNumber = document.getElementById("guesses").textContent;
           var newNumber = parseInt(currentNumber) - 1;
-          badLetterArray.push(playerGuess);
-          document.getElementById("guessed-letters").textContent = badLetterArray;
-          document.getElementById("guesses").textContent = newNumber;
-          // check to see if the user has lost.
-          if (parseInt(newNumber) === 0) {
-            var playerMessage = "<br><br>YOU LOSE!<br><br>Press Enter to restart."
-            document.getElementById("player-message").innerHTML = playerMessage;
-            if (event.keyCode === 13) {
-              location.reload();
+
+          if ((parseInt(document.getElementById("guesses").textContent) === 0)) {
+            // if no guesses remain, do nothing.
+          } else {
+            badLetterArray.push(playerGuess);
+            document.getElementById("guessed-letters").textContent = badLetterArray;
+            document.getElementById("guesses").textContent = newNumber;
+            // check to see if the user has lost.
+            if (parseInt(newNumber) === 0) {
+              var playerMessage = "<br><br>YOU LOSE!<br><br>Press Enter to restart."
+              document.getElementById("player-message").innerHTML = playerMessage;
+              if (event.keyCode === 13) {
+                location.reload();
+              }
             }
           }
         }
@@ -157,9 +156,10 @@ function game() {
 
       var playerMessage = document.getElementById("player-message").textContent
       if (playerMessage.includes("WIN") && (event.keyCode === 13)) {
-        document.getElementById("score").textContent = parseInt(document.getElementById("score").textContent) + 1;
-        document.getElementById("guesses").textContent = 11;
-        document.getElementById("guessed-letters").textContent = "";
+        document.getElementById("score").textContent = parseInt(document.getElementById("score").textContent) + 1; // increments score
+        document.getElementById("guesses").textContent = 11; // resets guesses
+        document.getElementById("guessed-letters").textContent = "";  // resets guessed letters
+        document.getElementById("player-message").textContent = ""; //resets player message
         game();
       } else if (playerMessage.includes("LOSE") && event.keyCode === 13) { // reload the page if you lose.
         location.reload();
@@ -239,6 +239,9 @@ var players = [
 ];
 console.log("Loaded Player List"); // used to confirm the array above has been loaded.
 
+var score = 0; // define score
+var guesses = 11; // define guesses
+
 window.onload = function () { // runs after the document loads, allows the images to be loaded and page to be dynamic.
   document.getElementById("player-message").innerHTML = "<br><br>Welcome to the Word Guess Game - Liverpool Edition<br><br>Press Enter to continue.<br><br>You will have 11 guesses per player, if you guess correctly, the guesses are reset to 11 for the next player"
   document.getElementById("player-image").src = "assets/images/liverbird.svg";
@@ -246,6 +249,14 @@ window.onload = function () { // runs after the document loads, allows the image
 
 document.onkeyup = function (event) {
   if (event.keyCode === 13) {
+    // Set page elements for beginning of game.
+    document.getElementById("player-message").textContent = "";    // resets player message
+    document.getElementById("heading").textContent = "Name That Player!" // Inserts the heading
+    document.getElementById("hidden-guess-letters").innerHTML = 'Guessed Letters: <span id="guessed-letters"></span>';
+    document.getElementById("hidden-guess-rem").innerHTML = 'Guesses Remaining: <span id="guesses">' + guesses + '</span>';
+    document.getElementById("scoreboard").innerHTML = 'Score: <span id="score">' + score + '</span>';
+
+
     game();
   }
 }

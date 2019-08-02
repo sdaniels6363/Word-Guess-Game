@@ -243,7 +243,7 @@ var score = 0; // define score
 var guesses = 11; // define guesses
 
 window.onload = function () { // runs after the document loads, allows the images to be loaded and page to be dynamic.
-  document.getElementById("player-message").innerHTML = "<br><br>Welcome to the Word Guess Game - Liverpool Edition<br><br>Press Enter to continue.<br><br>You will have 11 guesses per player, if you guess correctly, the guesses are reset to 11 for the next player"
+  document.getElementById("player-message").innerHTML = "Welcome to the Word Guess Game - Liverpool Edition<br><br>Press Enter to continue.<br><br>You will have 11 guesses per player, if you guess correctly, the guesses are reset to 11 for the next player"
   document.getElementById("player-image").src = "assets/images/liverbird.svg";
 }
 

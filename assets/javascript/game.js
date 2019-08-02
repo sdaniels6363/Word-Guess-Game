@@ -66,7 +66,9 @@ function loadGame(array) {
   // resets player message
   document.getElementById("player-message").textContent = "";
 
-
+  document.getElementById("hidden-guess-letters").innerHTML  = 'Guessed Letters: <span id="guessed-letters"></span>';
+  document.getElementById("hidden-guess-rem").innerHTML  = 'Guesses Remaining: <span id="guesses">11</span>';
+  document.getElementById("scoreboard").innerHTML  = 'Score: <span id="score">0</span>';
   // game begins below this line
 
   var playerName = selectedPlayer[0]; // extract player information from returned array from before.
@@ -168,9 +170,6 @@ function game() {
 
 }
 
-
-
-
 // player array and picture information
 var players = [
   {
@@ -243,7 +242,6 @@ console.log("Loaded Player List"); // used to confirm the array above has been l
 window.onload = function () { // runs after the document loads, allows the images to be loaded and page to be dynamic.
   document.getElementById("player-message").innerHTML = "<br><br>Welcome to the Word Guess Game - Liverpool Edition<br><br>Press Enter to continue.<br><br>You will have 11 guesses per player, if you guess correctly, the guesses are reset to 11 for the next player"
   document.getElementById("player-image").src = "assets/images/liverbird.svg";
-
 }
 
 document.onkeyup = function (event) {

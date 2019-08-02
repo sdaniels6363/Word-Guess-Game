@@ -1,3 +1,16 @@
+/* elements */
+h1{
+  text-align: center;
+}
+
+/* classes */
+.row{
+  height: 50px;
+  text-align: center;
+
+}
+
+/* ids */
 #player-name-as-spaces{
   letter-spacing: 0.5rem;
 }
